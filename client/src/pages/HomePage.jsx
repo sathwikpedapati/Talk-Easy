@@ -12,21 +12,34 @@ const HomePage = () => {
   const bgColor = darkMode ? "#1e1e2f" : "#f0f2f5";
 
   return (
-    <div
-      className="h-screen w-full"
-      style={{ backgroundColor: bgColor }}
-    >
+    <div className="h-screen w-full" style={{ backgroundColor: bgColor }}>
       <div
         className="backdrop-blur-xl rounded-2xl h-full grid"
         style={{
-          gridTemplateColumns: selectedUser ? "1fr 2fr 1fr" : "1fr 2fr",
           backgroundColor: darkMode ? "#2c2c44" : "white",
-          gap: 0,
         }}
       >
-        <Sidebar />
-        <ChatContainer />
-        {selectedUser && <RightSidebar />}
+        {/* --- Sidebar --- */}
+        <div
+          className={`
+            ${selectedUser ? "hidden md:block" : "block"} 
+            h-full
+          `}
+        >
+          <Sidebar />
+        </div>
+
+        {/* --- Chat container --- */}
+        <div className="h-full">
+          <ChatContainer />
+        </div>
+
+        {/* --- Right Sidebar --- */}
+        {selectedUser && (
+          <div className="hidden lg:block h-full">
+            <RightSidebar />
+          </div>
+        )}
       </div>
     </div>
   );
