@@ -12,33 +12,21 @@ const HomePage = () => {
   const bgColor = darkMode ? "#1e1e2f" : "#f0f2f5";
 
   return (
-    <div className="h-screen w-full" style={{ backgroundColor: bgColor }}>
+    <div
+      className="h-screen w-full"
+      style={{ backgroundColor: bgColor }}
+    >
       <div
         className="backdrop-blur-xl rounded-2xl h-full grid"
         style={{
+          gridTemplateColumns: selectedUser ? "1fr 2fr 1fr" : "1fr 2fr",
           backgroundColor: darkMode ? "#2c2c44" : "white",
+          gap: 0,
         }}
       >
-        {/* Sidebar: Always visible on desktop, toggleable on mobile */}
-        <div className="hidden md:block">
-          <Sidebar />
-        </div>
-
-        {/* Chat container: Full width on mobile, center on desktop */}
-        <div
-          className={`${
-            selectedUser ? "col-span-1 md:col-span-1" : "col-span-2 md:col-span-1"
-          }`}
-        >
-          <ChatContainer />
-        </div>
-
-        {/* Right sidebar: Only shows if a user is selected & on desktop */}
-        {selectedUser && (
-          <div className="hidden md:block">
-            <RightSidebar />
-          </div>
-        )}
+        <Sidebar />
+        <ChatContainer />
+        {selectedUser && <RightSidebar />}
       </div>
     </div>
   );
