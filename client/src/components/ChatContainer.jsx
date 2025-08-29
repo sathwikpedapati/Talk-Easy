@@ -155,7 +155,7 @@ const ChatContainer = () => {
         style={{
           display: "flex",
           padding: 12,
-          gap: 1,
+          gap: 2,
           borderTop: `1px solid ${darkMode ? "#444" : "#ccc"}`,
           backgroundColor: inputBg,
           width: "100%",
