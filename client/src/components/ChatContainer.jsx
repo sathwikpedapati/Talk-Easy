@@ -162,16 +162,16 @@ const ChatContainer = () => {
           alignItems: "center",
         }}
       >
-        <Upload beforeUpload={handleSendImage} showUploadList={false}>
-          <Button icon={<PictureOutlined />} />
-        </Upload>
-        <Input
+       <Input
           placeholder="Type a message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onPressEnter={handleSendMessage}
           style={{ backgroundColor: inputBg, color: textColor, border: "1px solid black" }}
         />
+         <Upload beforeUpload={handleSendImage} showUploadList={false}>
+          <Button icon={<PictureOutlined />} />
+        </Upload>
         <Button type="primary" icon={<SendOutlined />} onClick={handleSendMessage} />
       </div>
     </div>
